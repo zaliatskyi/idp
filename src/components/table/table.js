@@ -48,8 +48,9 @@ export default class Table extends Component {
 
   getTableCard = () => {
     const { deck, board, isFlop } = this.state,
-          currentCards = deck.slice(0,isFlop ? 3 : 1),
-          newDeck = deck.slice(isFlop ? 3 : 1, deck.length);
+          cardPos = isFlop ? 4 : 2,
+          currentCards = deck.slice(1, cardPos),
+          newDeck = deck.slice(cardPos, deck.length);
 
     this.setState( (state) => {
       const { isLast } = this.state;

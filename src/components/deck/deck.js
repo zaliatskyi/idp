@@ -5,7 +5,7 @@ import './deck.css';
 export default class Deck extends Component {
   render() {
     const { board } = this.props;
-  
+
     return (
       <div className="deck">
         { board.map( card => {
