@@ -1,0 +1,22 @@
+.deck {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.deck-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-btns .btn {
+  margin: 0 20px;
+}
+
+.deck .card {
+  height: 300px;
+}
