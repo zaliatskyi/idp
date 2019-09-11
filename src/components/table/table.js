@@ -47,7 +47,20 @@ export default class Table extends Component {
   }
 
   getTableCard = () => {
-    console.log('action put cards on the table');
+    const { deck, board, isFlop } = this.state,
+          currentCards = deck.slice(0,isFlop ? 3 : 1),
+          newDeck = deck.slice(isFlop ? 3 : 1, deck.length);
+
+    this.setState( (state) => {
+      const { isLast } = this.state;
+
+      return {
+        board: isLast ? board : board.concat(currentCards),
+        deck: newDeck,
+        isFlop: false,
+        isLast: board.length >= 4 ? true : false
+      }
+    });
   }
 
   render() {

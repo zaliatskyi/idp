@@ -16,7 +16,7 @@ export default class Players extends Component {
                 player {playerIndex + 1}
                 <div className="cards">
                   {player.map( card => {
-                    return <Card value={card} className="card" />
+                    return <Card value={card} className="card" key={card} />
                   })}
                 </div>
               </div>

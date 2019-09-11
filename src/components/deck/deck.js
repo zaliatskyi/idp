@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '../card';
 import './deck.css';
 
 export default class Deck extends Component {
@@ -7,7 +8,9 @@ export default class Deck extends Component {
   
     return (
       <div className="deck">
-        here will be our deck
+        { board.map( card => {
+          return <Card value={card} className="card" key={card} />
+        })}
       </div>
     );
   }
