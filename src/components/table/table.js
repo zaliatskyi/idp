@@ -24,6 +24,14 @@ export default class Table extends Component {
     console.log('state is:', this.state);
   }
 
+  dealCards = () => {
+    console.log('action to deal cards to players');
+  }
+
+  getTableCard = () => {
+    console.log('action put cards on the table');
+  }
+
   render() {
     const {
       board,
