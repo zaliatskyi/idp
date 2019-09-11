@@ -25,7 +25,25 @@ export default class Table extends Component {
   }
 
   dealCards = () => {
-    console.log('action to deal cards to players');
+    let { playersNumber, deck } = this.state,
+          playersArr = [],
+          counter = 0,
+          newDeck = deck;
+
+    this.setState( (state) => {
+      for (counter; counter < playersNumber; counter++ ) {
+        let cards = [newDeck[0], newDeck[1]];
+  
+        newDeck = newDeck.slice(2, newDeck.length);
+        playersArr.push(cards);
+      }
+      
+      return {
+        players: playersArr,
+        deck: newDeck,
+        cardsAreDealt: true
+      }
+    });
   }
 
   getTableCard = () => {

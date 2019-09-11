@@ -5,10 +5,6 @@ export default class Card extends Component {
   render () {
     const { value } = this.props;
 
-    return (
-      <div className={`card card-${value}`}>
-        <img src={`./cards/${value}.svg`} alt=""/>
-      </div>
-    )
+    return <img className="card" src={`./cards/${value}.svg`} alt={`card ${value}`} key={value}/>;
   }
 }
