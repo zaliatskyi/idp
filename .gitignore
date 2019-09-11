@@ -1,0 +1,10 @@
+# IDE
+/.idea
+.phpstorm.meta.php
+.vscode
+
+#Front
+/node_modules
+package-lock.json
+
+
