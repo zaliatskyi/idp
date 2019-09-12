@@ -1,6 +1,9 @@
+@import '../app/mixins.scss';
+@import '../app/variables.scss';
+
 .players {
   position: absolute;
-  top: 0;
+  top: -120px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -14,18 +17,6 @@
     justify-content: center;
     align-items: center;
 
-    &.player1 {
-      left: 20%;
-    }
-
-    &.player2 {
-      left: 50%;
-    }
-
-    &.player3 {
-      left: 80%;
-    }
-
     &-name {
       color: #96e296;
       padding: 5px 20px;
@@ -34,7 +25,59 @@
     }
 
     &-seat {
+      width: 120px;
+      height: 120px;
+      background: $red;
+      border-radius: 50%;
+      margin-bottom: 30px;
+      box-shadow: 1px 10px 0 rgba($black, .3);
+      position: relative;
 
+      &::before {
+        content: '';
+        display: block;
+        background: darken($red, 10%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        @include center-xy();
+      }
+    }
+
+    &.player1 {
+      left: 20%;
+
+      .player-seat {
+        background: dodgerblue;
+
+        &::before {
+          background: darken(dodgerblue, 10%);
+        }
+      }
+    }
+
+    &.player2 {
+      left: 50%;
+
+      .player-seat {
+        background: lightcoral;
+
+        &::before {
+          background: darken(lightcoral, 10%);
+        }
+      }
+    }
+
+    &.player3 {
+      left: 80%;
+
+      .player-seat {
+        background: goldenrod;
+
+        &::before {
+          background: darken(goldenrod, 10%);
+        }
+      }
     }
 
     .card {

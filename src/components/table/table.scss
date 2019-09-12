@@ -1,10 +1,12 @@
+@import '../app/variables.scss';
+
 .table {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #4aad4a;
-  border: 15px solid #a95555;
+  background-color: $table;
+  border: 15px solid $table-border;
   width: 100%;
   max-width: 1200px;
   height: 500px;
@@ -12,7 +14,7 @@
 
   &::before {
     content: '';
-    border: 10px solid rgba(0, 0, 0, 0.1);
+    border: 10px solid rgba($black, .1);
     border-radius: 130px;
     position: absolute;
     top: 0;
