@@ -1,0 +1,23 @@
+.table {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4aad4a;
+  border: 15px solid #a95555;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  border-radius: 150px;
+
+  &::before {
+    content: '';
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    border-radius: 130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

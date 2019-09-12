@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Deck from '../deck';
 import Players from '../players';
 import CardsService from '../../services/cards-service';
+import '../table/table.scss';
 
 const cardsService = new CardsService();
 
@@ -75,23 +76,26 @@ export default class Table extends Component {
     } = this.state;
 
     return (
-      <div className="table">
-        <div className="deck-btns">
-          {
-            !cardsAreDealt && <button className="btn btnCard" onClick={this.dealCards} >
-              { 'deal cards'}
-            </button>
-          }
-          {
-            !isLast && cardsAreDealt && playersNumber > 0 &&
-            <button className="btn btnCard" onClick={this.getTableCard} >
-              { isFlop ? 'take flop' : 'take card'}
-            </button>
-          }
+      <React.Fragment>
+        <div className="table">
+          <Deck board={board} />
+          <Players players={players} />
         </div>
-        <Deck board={board} />
-        <Players players={players} />
-      </div>
+
+        <div className="deck-btns">
+        {
+          !cardsAreDealt && <button className="btn btnCard" onClick={this.dealCards} >
+            { 'deal cards'}
+          </button>
+        }
+        {
+          !isLast && cardsAreDealt && playersNumber > 0 &&
+          <button className="btn btnCard" onClick={this.getTableCard} >
+            { isFlop ? 'take flop' : 'take card'}
+          </button>
+        }
+        </div>
+      </React.Fragment>
     )
   }
 }

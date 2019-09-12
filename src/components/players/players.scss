@@ -1,0 +1,51 @@
+.players {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .player {
+    position: absolute;
+    top: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.player1 {
+      left: 20%;
+    }
+
+    &.player2 {
+      left: 50%;
+    }
+
+    &.player3 {
+      left: 80%;
+    }
+
+    &-name {
+      color: #96e296;
+      padding: 5px 20px;
+      border-radius: 10px;
+      border: 2px solid #96e296;
+    }
+
+    &-seat {
+
+    }
+
+    .card {
+      margin: 0 5px;
+      max-height: 100%;
+      height: 130px;
+
+      &s {
+        display: flex;
+        margin-top: 10px;
+      }
+    }
+  }
+}
