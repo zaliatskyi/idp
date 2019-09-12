@@ -10,7 +10,7 @@ export default class Deck extends Component {
       <div className="deck">
         <div className="deck-cards">
           { board.map( card => {
-            return <Card value={card} className="card" key={card} />
+            return <Card value={card} key={card} />;
           })}
         </div>
       </div>

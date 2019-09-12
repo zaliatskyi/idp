@@ -16,6 +16,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: .3s ease;
+    opacity: 0;
 
     &-name {
       color: #96e296;
@@ -44,6 +46,10 @@
       }
     }
 
+    &.show {
+      opacity: 1;
+    }
+
     &.player1 {
       left: 20%;
 
@@ -58,6 +64,7 @@
 
     &.player2 {
       left: 50%;
+      transition-delay: .5s;
 
       .player-seat {
         background: lightcoral;
@@ -70,6 +77,7 @@
 
     &.player3 {
       left: 80%;
+      transition-delay: 1s;
 
       .player-seat {
         background: goldenrod;

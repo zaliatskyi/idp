@@ -1,3 +1,5 @@
+import isOnePair from './isOnePair';
+
 const suits = ["D", "C", "H", "S"],
       names = [
     "A",
@@ -45,6 +47,44 @@ const shuffle = array => {
   return array;
 };
 
+const getSuitsAndRanks = (cards) => {
+  let suits = [],
+      ranks = [];
+
+  cards.forEach(element => {
+    let isTen = element.length === 3,
+        rank = element.slice(0, isTen ? 2 : 1 ),
+        suit = element.slice(isTen ? 2 : 1, element.length);
+
+    suits.push(suit);
+    ranks.push(rank);
+  });
+
+  return {
+    suits,
+    ranks
+  }
+}
+
+const checkCombination = (combination) => {
+  let cardsInfo = getSuitsAndRanks(combination),
+      result = isOnePair(cardsInfo) ? 'one pair' : 'no combo';
+
+  // console.log('here we have such info', cardsInfo);
+  // console.group();
+  // console.log('current combination is:', combination);
+  // console.log('result is:', result);
+  // console.groupEnd();
+
+  switch(result) {
+    case 'royalFlush': 
+      return 'royalFlush';
+    default: 
+      return 'this is no combo'
+  }
+}
+
 export default class CardsService {
   getDeck = () => shuffle(generateDeck());
+  checkCombination = (combination) => checkCombination(combination);
 }

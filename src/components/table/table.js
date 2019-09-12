@@ -21,13 +21,12 @@ export default class Table extends Component {
     };
   }
 
-  componentDidUpdate() {
-    console.log('state is:', this.state);
-  }
-
   dealCards = () => {
-    let { playersNumber, deck } = this.state,
-          playersArr = [],
+    let { 
+          playersNumber, 
+          deck
+        } = this.state,
+          playersArr = {},
           counter = 0,
           newDeck = deck;
 
@@ -36,7 +35,7 @@ export default class Table extends Component {
         let cards = [newDeck[0], newDeck[1]];
   
         newDeck = newDeck.slice(2, newDeck.length);
-        playersArr.push(cards);
+        playersArr[counter] = { cards };
       }
       
       return {
@@ -48,11 +47,16 @@ export default class Table extends Component {
   }
 
   getTableCard = () => {
-    const { deck, board, isFlop } = this.state,
+    const { 
+            deck,
+            board,
+            isFlop
+          } = this.state,
           cardPos = isFlop ? 4 : 2,
           currentCards = deck.slice(1, cardPos),
           newDeck = deck.slice(cardPos, deck.length);
 
+    this.getResult(this.state.isLast ? board : board.concat(currentCards));
     this.setState( (state) => {
       const { isLast } = this.state;
 
@@ -63,6 +67,20 @@ export default class Table extends Component {
         isLast: board.length >= 4 ? true : false
       }
     });
+  }
+
+  getResult = (cards) => {
+    const { players } = this.state;
+
+    Object.keys(players).map((player) => {
+      const combination = [...players[player].cards, ...cards].sort();
+
+      console.log(cardsService.checkCombination(combination));
+    });
+  }
+
+  componentDidUpdate() {
+    console.log('new state is:', this.state);
   }
 
   render() {
