@@ -1,6 +1,7 @@
 import isOnePair from './isOnePair';
 import isTwoPairs from './isTwoPairs';
 import isThreeOfKind from './isThree';
+import isStraight from './isStraight';
 
 const suits = ["D", "C", "H", "S"],
       names = [
@@ -55,11 +56,11 @@ const getSuitsAndRanks = (cards) => {
 
   cards.forEach(element => {
     let isTen = element.length === 3,
-        rank = element.slice(0, isTen ? 2 : 1 ),
+        rank = element.slice(0, isTen ? 2 : 1 ).replace('J', '11').replace('Q', '12').replace('K', '13').replace('A', '14'),
         suit = element.slice(isTen ? 2 : 1, element.length);
 
     suits.push(suit);
-    ranks.push(rank);
+    ranks.push(parseInt(rank));
   });
 
   return {
@@ -70,7 +71,7 @@ const getSuitsAndRanks = (cards) => {
 
 const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
-      result = isThreeOfKind(cardsInfo) ? 'three of a kind' : isTwoPairs(cardsInfo) ? 'two pairs' : isOnePair(cardsInfo) ? 'one pair' : 'no combo';
+      result = isStraight(cardsInfo) ? 'straight' : isThreeOfKind(cardsInfo) ? 'three of a kind' : isTwoPairs(cardsInfo) ? 'two pairs' : isOnePair(cardsInfo) ? 'one pair' : 'high card';
 
   return result;
 }
