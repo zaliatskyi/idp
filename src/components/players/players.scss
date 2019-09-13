@@ -16,8 +16,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: .3s ease;
-    opacity: 0;
 
     &-name {
       color: $light-green;
@@ -49,10 +47,6 @@
     &-result {
       color: $light-green;
       margin-top: 10px;
-    }
-
-    &.show {
-      opacity: 1;
     }
 
     &.player1 {

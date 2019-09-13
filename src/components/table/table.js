@@ -79,7 +79,7 @@ export default class Table extends Component {
 
       newPlayersArr[index].result = result;
 
-      this.setState( (state) => {
+      this.setState((state) => {
         return {
           players: newPlayersArr
         }

@@ -14,14 +14,14 @@ export default class Players extends Component {
   render() {
     const { players } = this.props,
           { isVisible } = this.state;
-
+    console.log('rendering players');
     return (
       <div className="players">
         {
           Object.keys(players).map((playerIndex) => {
             const { cards, result } = players[playerIndex],
                   index = parseFloat(playerIndex) + 1;
-
+            // console.log('result isasdas', players[playerIndex].cards);
             return (
               <div className={`player player${index} ${isVisible ? 'show' : 'hidden'}`} key={`player${index}`}>
                 <div className="player-seat"></div>
@@ -31,20 +31,12 @@ export default class Players extends Component {
                     return <Card value={card} className="card" key={card} />
                   })}
                 </div>
-                <div className="player-result">{result}</div>
+                <div className={`player-result`}>{result}</div>
               </div>
             )
           })
         }
       </div>
     )
-  }
-
-  componentDidUpdate() {
-    setTimeout(() => {
-      this.setState({
-        isVisible: true
-      })
-    }, 200);
   }
 }
