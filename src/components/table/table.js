@@ -4,9 +4,19 @@ import Players from '../players';
 import CardsService from '../../services/cards-service';
 import '../table/table.scss';
 
-const cardsService = new CardsService();
+const cardsService = new CardsService(),
+  initialState = { 
+    board: [],
+    playersNumber: 3,
+    players: [],
+    deck: cardsService.getDeck(),
+    cardsAreDealt: false,
+    isFlop: true,
+    isLast: false
+};
 
 export default class Table extends Component {
+  
   constructor(props) {
     super();
 
@@ -87,6 +97,10 @@ export default class Table extends Component {
     });
   }
 
+  resetTable = () => {
+    this.setState( initialState);
+  }
+
   componentDidUpdate() {
     console.log('new state is:', this.state);
   }
@@ -116,9 +130,13 @@ export default class Table extends Component {
         }
         {
           !isLast && cardsAreDealt && playersNumber > 0 &&
-          <button className="btn btnCard" onClick={this.getTableCard} >
-            { isFlop ? 'take flop' : 'take card'}
-          </button>
+            <button className="btn btnCard" onClick={this.getTableCard} >
+              { isFlop ? 'take flop' : 'take card'}
+            </button>
+        }
+        {
+          isLast && cardsAreDealt && 
+          <button className="btn btnCard" onClick={this.resetTable}>reset table</button>
         }
         </div>
       </React.Fragment>

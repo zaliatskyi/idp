@@ -14,7 +14,7 @@ export default class Players extends Component {
   render() {
     const { players } = this.props,
           { isVisible } = this.state;
-    console.log('rendering players');
+
     return (
       <div className="players">
         {

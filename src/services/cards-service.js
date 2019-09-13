@@ -1,5 +1,6 @@
 import isOnePair from './isOnePair';
 import isTwoPairs from './isTwoPairs';
+import isThreeOfKind from './isThree';
 
 const suits = ["D", "C", "H", "S"],
       names = [
@@ -69,14 +70,7 @@ const getSuitsAndRanks = (cards) => {
 
 const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
-      result = isTwoPairs(cardsInfo) ? 'two pairs' : isOnePair(cardsInfo) ? 'one pair' : 'no combo';
-
-  // console.log('our result is:', result);
-  // console.log('here we have such info', cardsInfo);
-  // console.group();
-  // console.log('current combination is:', combination);
-  // console.log('result is:', result);
-  // console.groupEnd();
+      result = isThreeOfKind(cardsInfo) ? 'three of a kind' : isTwoPairs(cardsInfo) ? 'two pairs' : isOnePair(cardsInfo) ? 'one pair' : 'no combo';
 
   return result;
 }
