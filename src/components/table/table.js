@@ -70,12 +70,20 @@ export default class Table extends Component {
   }
 
   getResult = (cards) => {
-    const { players } = this.state;
+    const { players } = this.state,
+          newPlayersArr = players;
 
-    Object.keys(players).map((player) => {
-      const combination = [...players[player].cards, ...cards].sort();
+    Object.keys(players).map((index) => {
+      const combination = [...players[index].cards, ...cards].sort(),
+            result = cardsService.checkCombination(combination);
 
-      console.log(cardsService.checkCombination(combination));
+      newPlayersArr[index].result = result;
+
+      this.setState( (state) => {
+        return {
+          players: newPlayersArr
+        }
+      })
     });
   }
 

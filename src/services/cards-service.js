@@ -1,4 +1,5 @@
 import isOnePair from './isOnePair';
+import isTwoPairs from './isTwoPairs';
 
 const suits = ["D", "C", "H", "S"],
       names = [
@@ -68,20 +69,16 @@ const getSuitsAndRanks = (cards) => {
 
 const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
-      result = isOnePair(cardsInfo) ? 'one pair' : 'no combo';
+      result = isTwoPairs(cardsInfo) ? 'two pairs' : isOnePair(cardsInfo) ? 'one pair' : 'no combo';
 
+  // console.log('our result is:', result);
   // console.log('here we have such info', cardsInfo);
   // console.group();
   // console.log('current combination is:', combination);
   // console.log('result is:', result);
   // console.groupEnd();
 
-  switch(result) {
-    case 'royalFlush': 
-      return 'royalFlush';
-    default: 
-      return 'this is no combo'
-  }
+  return result;
 }
 
 export default class CardsService {

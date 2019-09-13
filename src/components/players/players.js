@@ -19,7 +19,7 @@ export default class Players extends Component {
       <div className="players">
         {
           Object.keys(players).map((playerIndex) => {
-            const { cards } = players[playerIndex],
+            const { cards, result } = players[playerIndex],
                   index = parseFloat(playerIndex) + 1;
 
             return (
@@ -31,6 +31,7 @@ export default class Players extends Component {
                     return <Card value={card} className="card" key={card} />
                   })}
                 </div>
+                <div className="player-result">{result}</div>
               </div>
             )
           })
