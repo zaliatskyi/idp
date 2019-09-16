@@ -5,7 +5,7 @@ import CardsService from '../../services/cards-service';
 import '../table/table.scss';
 
 const cardsService = new CardsService(),
-  initialState = { 
+  initialState = {
     board: [],
     playersNumber: 3,
     players: [],
@@ -16,11 +16,11 @@ const cardsService = new CardsService(),
 };
 
 export default class Table extends Component {
-  
+
   constructor(props) {
     super();
 
-    this.state = { 
+    this.state = {
       board: [],
       playersNumber: 3,
       players: [],
@@ -32,8 +32,8 @@ export default class Table extends Component {
   }
 
   dealCards = () => {
-    let { 
-          playersNumber, 
+    let {
+          playersNumber,
           deck
         } = this.state,
           playersArr = {},
@@ -43,11 +43,11 @@ export default class Table extends Component {
     this.setState( (state) => {
       for (counter; counter < playersNumber; counter++ ) {
         let cards = [newDeck[0], newDeck[1]];
-  
+
         newDeck = newDeck.slice(2, newDeck.length);
         playersArr[counter] = { cards };
       }
-      
+
       return {
         players: playersArr,
         deck: newDeck,
@@ -57,7 +57,7 @@ export default class Table extends Component {
   }
 
   getTableCard = () => {
-    const { 
+    const {
             deck,
             board,
             isFlop
@@ -89,11 +89,13 @@ export default class Table extends Component {
 
       newPlayersArr[index].result = result;
 
-      this.setState((state) => {
-        return {
-          players: newPlayersArr
-        }
-      })
+      return newPlayersArr;
+    });
+
+    this.setState((state) => {
+      return {
+        players: newPlayersArr
+      }
     });
   }
 
@@ -135,7 +137,7 @@ export default class Table extends Component {
             </button>
         }
         {
-          isLast && cardsAreDealt && 
+          isLast && cardsAreDealt &&
           <button className="btn btnCard" onClick={this.resetTable}>reset table</button>
         }
         </div>

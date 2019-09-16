@@ -56,7 +56,11 @@ const getSuitsAndRanks = (cards) => {
 
   cards.forEach(element => {
     let isTen = element.length === 3,
-        rank = element.slice(0, isTen ? 2 : 1 ).replace('J', '11').replace('Q', '12').replace('K', '13').replace('A', '14'),
+        rank = element.slice(0, isTen ? 2 : 1 )
+          .replace('J', '11')
+          .replace('Q', '12')
+          .replace('K', '13')
+          .replace('A', '14'),
         suit = element.slice(isTen ? 2 : 1, element.length);
 
     suits.push(suit);
