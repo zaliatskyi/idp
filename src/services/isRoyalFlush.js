@@ -7,6 +7,8 @@ const isRoyalFlush = (cards) => {
     if ([10, 11, 12, 13, 14].includes(val)) {
       isRoyal = true;
     }
+
+    return isRoyal;
   });
 
   return isRoyal && isFlush(cards) ? true : false;
