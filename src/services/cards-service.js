@@ -6,6 +6,7 @@ import isFlush from './isFlush';
 import isFullHouse from './isFullHouse';
 import isFourOfKind from './isFour';
 import isStraightFlush from './isStraightFlush';
+import isRoyalFlush from './isRoyalFlush';
 
 const suits = ["D", "C", "H", "S"],
       names = [
@@ -79,7 +80,8 @@ const getSuitsAndRanks = (cards) => {
 
 const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
-      result = isStraightFlush(cardsInfo) ? 'straight flush' :
+      result = isRoyalFlush(cardsInfo) ? 'royal flush' :
+              isStraightFlush(cardsInfo) ? 'straight flush' :
               isFourOfKind(cardsInfo) ? 'four of a kind' :
               isFullHouse(cardsInfo) ? 'full house':
               isFlush(cardsInfo) ? 'flush' :
