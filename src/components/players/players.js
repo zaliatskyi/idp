@@ -21,7 +21,7 @@ export default class Players extends Component {
           Object.keys(players).map((playerIndex) => {
             const { cards, result } = players[playerIndex],
                   index = parseFloat(playerIndex) + 1;
-            // console.log('result isasdas', players[playerIndex].cards);
+
             return (
               <div className={`player player${index} ${isVisible ? 'show' : 'hidden'}`} key={`player${index}`}>
                 <div className="player-seat"></div>

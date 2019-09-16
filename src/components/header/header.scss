@@ -1,0 +1,37 @@
+@import '../app/variables.scss';
+
+.header {
+  box-shadow: 0 8px 5px rgba($black, .3);
+  padding: 5px 15px;
+  background: $lightblue;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  .logo {
+    max-height: 70px;
+    margin-right: 40px;
+  }
+
+  &-list {
+    display: flex;
+
+    &__item {
+      transition: .3s ease;
+      margin-right: 20px;
+      cursor: pointer;
+      text-transform: capitalize;
+
+      &:hover {
+        color: $red;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

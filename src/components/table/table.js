@@ -9,7 +9,6 @@ const cardsService = new CardsService(),
     board: [],
     playersNumber: 3,
     players: [],
-    deck: cardsService.getDeck(),
     cardsAreDealt: false,
     isFlop: true,
     isLast: false
@@ -20,13 +19,8 @@ export default class Table extends Component {
     super();
 
     this.state = {
-      board: [],
-      playersNumber: 3,
-      players: [],
       deck: cardsService.getDeck(),
-      cardsAreDealt: false,
-      isFlop: true,
-      isLast: false
+      ...initialState
     };
   }
 
@@ -99,7 +93,7 @@ export default class Table extends Component {
   }
 
   resetTable = () => {
-    this.setState( initialState);
+    this.setState(initialState);
   }
 
   componentDidUpdate() {
