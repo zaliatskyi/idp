@@ -3,6 +3,7 @@ import isTwoPairs from './isTwoPairs';
 import isThreeOfKind from './isThree';
 import isStraight from './isStraight';
 import isFlush from './isFlush';
+import isFullHouse from './isFullHouse';
 import isFourOfKind from './isFour';
 import isStraightFlush from './isStraightFlush';
 
@@ -80,6 +81,7 @@ const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
       result = isStraightFlush(cardsInfo) ? 'straight flush' :
               isFourOfKind(cardsInfo) ? 'four of a kind' :
+              isFullHouse(cardsInfo) ? 'full house':
               isFlush(cardsInfo) ? 'flush' :
               isStraight(cardsInfo) ? 'straight' :
               isThreeOfKind(cardsInfo) ? 'three of a kind' :
