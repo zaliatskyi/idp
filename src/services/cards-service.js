@@ -2,6 +2,7 @@ import isOnePair from './isOnePair';
 import isTwoPairs from './isTwoPairs';
 import isThreeOfKind from './isThree';
 import isStraight from './isStraight';
+import isFlush from './isFlush';
 
 const suits = ["D", "C", "H", "S"],
       names = [
@@ -75,11 +76,14 @@ const getSuitsAndRanks = (cards) => {
 
 const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
-      result = isStraight(cardsInfo) ? 'straight' : isThreeOfKind(cardsInfo) ? 'three of a kind' : isTwoPairs(cardsInfo) ? 'two pairs' : isOnePair(cardsInfo) ? 'one pair' : 'high card';
+      result = isFlush(cardsInfo) ? 'flush' :
+              isStraight(cardsInfo) ? 'straight' :
+              isThreeOfKind(cardsInfo) ? 'three of a kind' :
+              isTwoPairs(cardsInfo) ? 'two pairs' :
+              isOnePair(cardsInfo) ? 'one pair' : 'high card';
 
   return result;
 }
-
 export default class CardsService {
   getDeck = () => shuffle(generateDeck());
   checkCombination = (combination) => checkCombination(combination);

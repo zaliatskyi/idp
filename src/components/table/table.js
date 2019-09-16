@@ -14,7 +14,6 @@ const cardsService = new CardsService(),
     isFlop: true,
     isLast: false
 };
-
 export default class Table extends Component {
 
   constructor(props) {
