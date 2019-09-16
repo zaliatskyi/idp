@@ -3,6 +3,7 @@ import isTwoPairs from './isTwoPairs';
 import isThreeOfKind from './isThree';
 import isStraight from './isStraight';
 import isFlush from './isFlush';
+import isFourOfKind from './isFour';
 
 const suits = ["D", "C", "H", "S"],
       names = [
@@ -76,7 +77,8 @@ const getSuitsAndRanks = (cards) => {
 
 const checkCombination = (combination) => {
   let cardsInfo = getSuitsAndRanks(combination),
-      result = isFlush(cardsInfo) ? 'flush' :
+      result = isFourOfKind(cardsInfo) ? 'four of a kind' :
+              isFlush(cardsInfo) ? 'flush' :
               isStraight(cardsInfo) ? 'straight' :
               isThreeOfKind(cardsInfo) ? 'three of a kind' :
               isTwoPairs(cardsInfo) ? 'two pairs' :
