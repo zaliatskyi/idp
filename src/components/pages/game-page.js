@@ -12,7 +12,7 @@ export default class GamePage extends Component {
         transitionLeaveTimeout={200}
         transitionName={this.props.match.params === '/game' ? 'loadComponent' : 'leaveComponent'}
       >
-        <Header />
+        <Header currentPage="table" />
         <Table />
       </ReactCSSTransitionGroup>
     );

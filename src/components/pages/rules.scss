@@ -1,0 +1,71 @@
+@import '../app/variables.scss';
+
+.rules {
+  padding: 100px 0;
+
+  &-wrapper {
+    width: 1140px;
+    margin: 0 auto;
+    letter-spacing: .2px;
+  }
+
+  &-header {
+    font-size: 40px;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  &-subheader {
+    font-size: 32px;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+
+  &-block {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__list {
+      margin: 20px 0;
+      position: relative;
+
+      &-bullet {
+        padding-left: 20px;
+        position: relative;
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: '';
+          width: 6px;
+          height: 6px;
+          position: absolute;
+          top: 50%;
+          left: 5px;
+          transform: translateY(-50%);
+          background: $black;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
