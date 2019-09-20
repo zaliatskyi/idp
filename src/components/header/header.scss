@@ -3,7 +3,7 @@
 .header {
   box-shadow: 0 15px 10px rgba($black, .1);
   padding: 5px 15px;
-  background: $lightblue;
+  background: #333;
   font-size: 18px;
 }
 
@@ -12,7 +12,7 @@
   align-items: center;
 
   .logo {
-    max-height: 70px;
+    max-height: 55px;
     margin-right: 40px;
   }
 
