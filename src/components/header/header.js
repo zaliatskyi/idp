@@ -8,14 +8,14 @@ const Header = () => {
       <nav className="nav">
       <img src="../logo.svg" className="logo" alt="poker idp logo" />
         <ul className="nav-list">
-          <Link to="/login">
-            <li className="nav-list__item">login page</li>
+          <Link to="/" className="nav-list__item">
+            <li >login page</li>
           </Link>
-          <Link to="/game">
-            <li className="nav-list__item">table</li>
+          <Link to="/game" className="nav-list__item">
+            <li >table</li>
           </Link>
-          <Link to="/rules">
-            <li className="nav-list__item">rules</li>
+          <Link to="/rules" className="nav-list__item">
+            <li>rules</li>
           </Link>
         </ul>
       </nav>

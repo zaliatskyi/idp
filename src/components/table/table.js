@@ -5,16 +5,15 @@ import CardsService from '../../services/cards-service';
 import '../table/table.scss';
 
 const cardsService = new CardsService(),
-  initialState = {
-    board: [],
-    playersNumber: 3,
-    players: [],
-    cardsAreDealt: false,
-    isFlop: true,
-    isLast: false
-};
+      initialState = {
+        board: [],
+        playersNumber: 3,
+        players: [],
+        cardsAreDealt: false,
+        isFlop: true,
+        isLast: false
+    };
 export default class Table extends Component {
-
   constructor(props) {
     super();
 

@@ -38,7 +38,7 @@
     transition: .3s ease;
     opacity: 0;
     margin-right: 15px;
-    
+
     @for $i from 1 through 3 {
       &:nth-child(#{$i}n) {
         transition-delay: #{$i/2}s; 
