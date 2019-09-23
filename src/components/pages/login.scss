@@ -31,20 +31,51 @@
       padding: 10px 0;
       font-size: 18px;
       width: 100%;
+      transition: .3s ease;
+    }
+
+    &__error {
+      position: absolute;
+      bottom: -20px;
+      color: $red;
+      font-size: 13px;
+      opacity: 0;
+      transition: .2s ease;
     }
 
     &__row {
       position: relative;
       display: flex;
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.error {
+        .login-window{
+          &__row-name {
+            color: $red;
+          }
+
+          &__input {
+            border-color: $red;
+          }
+
+          &__error {
+            opacity: 1;
+          }
+        }
+      }
 
       &-name {
-        transition: .3s ease;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         left: 0;
         font-size: 18px;
         text-transform: capitalize;
+        transition: .3s ease;
       }
 
       &.active {

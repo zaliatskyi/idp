@@ -21,13 +21,20 @@ export default class LoginPage extends Component {
 
     if (target.value.length === 0) {
       parent.classList.remove('active');
+      parent.classList.add('error');
+    } else {
+      parent.classList.remove('error');
     }
   }
 
   submitLogin(e) {
-    const target = document.querySelector('.login-window__input');
+    const inputFields = document.querySelectorAll('.login-window__input[required]');
 
-    if (target.value.length > 0) {
+    inputFields.forEach(input => {
+      input.value.length === 0 ? input.parentElement.classList.add('error') : input.parentElement.classList.remove('error');
+    });
+
+    if (document.querySelectorAll('.error').length === 0) {
       this.props.history.push('/game');
     }
   }
@@ -52,8 +59,23 @@ export default class LoginPage extends Component {
               <input
                 type="text"
                 className="login-window__input"
+                id="name"
                 onBlur={ this.checkInput }
+                required
               />
+              <span className="login-window__error">Name field is required</span>
+            </div>
+
+            <div className="login-window__row" onClick={ this.focusInput }>
+              <span className="login-window__row-name">amount of players</span>
+              <input
+                type="text"
+                id="players"
+                className="login-window__input"
+                onBlur={ this.checkInput }
+                required
+              />
+              <span className="login-window__error">Players field is required</span>
             </div>
 
             <div className="login-window__btn-wrapper">
