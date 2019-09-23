@@ -4,3 +4,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin flex-row($amount, $margin-right, $margin-bottom) {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc((100% - #{$margin-right}px * #{$amount - 1} ) / #{$amount});
+  margin-right: #{$margin-right}px;
+  margin-bottom: #{$margin-bottom}px;
+
+  &:nth-child(n) {
+      margin-right: #{$margin-right}px;
+  }
+
+  &:nth-child(#{$amount}n) {
+      margin-right: 0;
+  }
+}

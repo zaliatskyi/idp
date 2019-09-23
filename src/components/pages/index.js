@@ -1,9 +1,9 @@
 import GamePage from './game-page';
 import Login from './login-page';
-import Rules from './rules-page';
+import RulesPage from './about/rules-page';
 
 export {
   GamePage,
   Login,
-  Rules
+  RulesPage
 }

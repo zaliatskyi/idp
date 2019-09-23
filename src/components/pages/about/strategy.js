@@ -1,0 +1,59 @@
+import React from 'react';
+
+const Strategy = (props) => {
+  console.log(props);
+
+  return (
+    <div className={`rules-section ${props.active ? 'active' : ''} `} data-section={props.name}>
+      <h2 className="rules-section__header">Poker Tips and Tactics</h2>
+      <p className="rules-section__row">It’s been said that poker is easy to learn but hard to master. This page will give you some tips to help you become a winning poker player, with general poker advice and strategy for players new to the game, as well as some more advanced concepts to consider once you have a good handle on the basics.</p>
+
+      <h2 className="rules-section__header">Basic Poker Strategy Considerations</h2>
+      <h3 className="rules-section__subheader">Decisions for the New Poker Player</h3>
+      <p className="rules-section__row">Decide whether you want to play poker to win or to play for fun. To play at a consistently winning level requires both time and effort. In other words, it takes work. There is nothing wrong with playing poker for fun, but there is no reason to plan to lose, even when you are playing for fun. However, deciding which type of poker player you want to be before you start will make your decisions and sessions easier.</p>
+      <h3 className="rules-section__subheader">Make Good Decisions – the Results Will Follow</h3>
+      <p className="rules-section__row">Even the best poker players in the world have losing sessions. Don't make the mistake of expecting to win every time you play. Your goal should be to play to the best of your ability in every session. If you do, the cards and winnings will take care of themselves as you improve.</p>
+      <p className="rules-section__row">Many players make the mistake of judging their poker playing ability based on the results of each session. Your goal should be to make the best possible play every time. The closer you come to this, the better your results will be.</p>
+      <h3 className="rules-section__subheader">The Mathematics of Poker</h3>
+      <p className="rules-section__row">Poker is a mathematical game, and it’s a game of incomplete information. That may sound complicated, but it really isn't. On a very basic level, winning poker starts with the selection of which starting hands to play. If you enter the pot with the best hand more often than your opponents do, you will win more times than your opponents.</p>
+      <h3 className="rules-section__subheader">Beyond Starting Hands</h3>
+      <p className="rules-section__row">Starting hand selection is fundamentally important, but it’s only one piece of the poker strategy puzzle. Once you have mastered solid starting hand guidelines and understand how they change by your position at the table, the next area you should work on is your play for the rest of the hand. The area that separates professional players from amateurs is that professional players tend to play much better than their opponents during the remainder of the hand, after the starting hand decisions are made.</p>
+      <p className="rules-section__row">This is especially true concerning the decisions made at the very end of every hand. These skills involve calculating pot odds, recognizing betting patterns, bluffing, and using position. The years of practice necessary to master the middle and end game play are well worth the effort, because even small improvements in a player’s abilities can have a tremendous effect on that player’s lifetime winnings. A great way to learn is to use the free resources available at our PokerStars School, where you’ll find plenty of opportunities to practice and improve your game.</p>
+      <h3 className="rules-section__subheader">Avoiding Tilt</h3>
+      <p className="rules-section__row">Another meta-skill that should be part of a winning player’s poker strategy is avoiding tilt. Your opponents will use your emotions against you, but only if you let them. Emotional play results in poor decisions and lost money. Tilting and steaming can happen to anyone, and sometimes the only cure is a break from the game. That’s okay; the game will still be there ten minutes from now. In fact, it will still be there tomorrow.</p>
+
+      <h2 className="rules-section__header">More Advanced Poker Strategy Considerations</h2>
+      <h3 className="rules-section__subheader">Different Styles of Play</h3>
+      <p className="rules-section__row">One of the things that makes poker such a fascinating game is the sheer variety of different approaches, styles and ways to play. Most styles can be broken down into a combination of the following:</p>
+      <ul className="rules-section__list">
+        <li className="rules-section__list-bullet">‘Tight’: an approach that values caution, playing relatively few hands and not taking too many risks.</li>
+        <li className="rules-section__list-bullet">‘Loose’: the opposite of tight, playing a lot of hands with a greater willingness to gamble.</li>
+        <li className="rules-section__list-bullet">‘Aggressive’: an approach that involves a lot of betting, opening pots and making big bets to put others under pressure.</li>
+        <li className="rules-section__list-bullet">‘Passive’: the opposite of aggressive, calling more often than betting, letting the opponent dictate how the action unfolds.</li>
+      </ul>
+      <p className="rules-section__row">Think about your own approach when you play poker. Do any of the terms above describe you?</p>
+      <p className="rules-section__row">If your answer is ‘all of them and none of them’, you’re onto something. The ability to ‘change gears’ and switch up your style at the poker table is extremely useful, as playing any style too rigidly will make you predictable. However, we recommend that players starting out should try to focus on a ‘tight-aggressive’ combination.</p>
+      <p className="rules-section__row">Adopting this style should make you comfortable with betting aggressively, which is essential for long-term success, while trying to play mostly good hands before the flop can help you learn discipline and prevent you from getting into too many difficult situations with marginal hands. As you gain more experience and improve your game, you will be able to loosen up and vary your style, but you should always try to stay aggressive.</p>
+      <h3 className="rules-section__subheader">Understanding the Importance of Position</h3>
+      <p className="rules-section__row">The dealer, or ‘button’, is usually the last player to act in a betting round, and acting last is a tactical advantage as you already know how your opponents have acted. The dealer position changes after every hand so this advantage is shared between all players to help keep the game fair.</p>
+      <p className="rules-section__row">To use this tactical edge in your favour, it’s generally wise to play more hands when in ‘late’ position (e.g. after most players have already acted) than ‘early’ position. Good players will often relax their starting hand requirements in late position, as the added benefit of position affords them greater flexibility and more options as the hand plays out.</p>
+      <p className="rules-section__row">If you’re playing opponents who have to act before you, it is said that you ‘have position’ on them, while they are ‘out of position’. This advantage can be significant.</p>
+      <h3 className="rules-section__subheader">Ensure Your Bluffs Make Sense</h3>
+      <p className="rules-section__row">Good hand selection is always important, as is understanding that the more players you’re up against, the greater the possibility that at least one of them will have a strong hand. But you will also find situations where a well-timed bluff could win you a pot you might otherwise lose.</p>
+      <p className="rules-section__row">When a poker player bluffs, what are they trying to achieve? They are attempting to get their opponent to fold the best hand. It’s that simple. In most poker games the majority of your hands will be junk that you want to fold before the flop, or marginal hands you don’t want to commit too many chips with. When that’s the case, bluffing becomes very important because it gives you a second chance to win.</p>
+      <p className="rules-section__row">A successful bluff will convince your opponent that you hold cards that will beat them, so it’s important to consider how your play looks to them. If you really held the cards you want them to think you hold, would you have played the hand the way you did? Is the ‘story’ you are telling with your actions at the table consistent and logical?</p>
+      <p className="rules-section__row">When bluffing, make sure that you think through the whole hand to see if the story you are telling makes sense. If you just decide to put a bet out there as your last hope to win the pot then the chances are high that a smart opponent will see through it.</p>
+      <h3 className="rules-section__subheader">Knowing Your Odds and Outs</h3>
+      <p className="rules-section__row">Odds are a way of expressing the probability of something happening. When tossing a coin, for example, there is an equal probability of the coin landing on ‘heads’ or ‘tails’ - we could express this probability as one to one (1/1, or ‘evens’) - for every one time it lands on ‘heads’, it’s likely to land on ‘tails’ one time as well. Now think about the odds of rolling a six on a six-sided die: for every one time it does land on a six, it’s likely to land on a different number five times, so we could express the odds of rolling a six as 5/1.</p>
+      <p className="rules-section__row">Now let’s look at a common situation in a poker game: you have four clubs and are waiting for that last club to fall on the river, which will make your flush and win you the pot. There are 13 clubs in a 52-card deck, and two of them are in your hand and another two are on the board, leaving nine clubs remaining. Discounting the two cards in your hand and the four on the board, there are 46 cards that could come on the river, nine of which will win you the pot - these nine cards are known as your ‘outs’.</p>
+      <p className="rules-section__row">So the odds of you making the flush are 37/9 (37 cards of the 46 cards will not make your flush, while nine cards will). This ratio of 37 to 9, and therefore your chances of making your flush, are approximately 4 to 1.</p>
+      <h3 className="rules-section__subheader">Working Out Pot Odds</h3>
+      <p className="rules-section__row">We’ll use the example above to explore the idea of ‘pot odds’ - the ratio of chips you can win versus the chips you need to put in the pot.</p>
+      <p className="rules-section__row">Let’s say you’re heads up against one opponent, waiting to hit your last club on the river. There’s 10 already in the pot, and your opponent bets their last 10. You can call, hoping to hit the club, or fold. What is the correct play? Figuring out the math is easier than you think.</p>
+      <p className="rules-section__row">In this situation you’re being asked to pay 10 to try to win 20 - that’s pot odds of exactly 2 to 1. But as we know, the odds of you hitting your flush are closer to 4 to 1. Taking a 4/1 risk for a payout of only 2/1 is a bad play, you should fold your flush draw.</p>
+      <p className="rules-section__row">But what if there was already 90 in the pot when your opponent put in their last 10? In that case, you’d be asked to pay 10 to try and win 100 - pot odds of exactly 10 to 1. Being offered a payout of 10/1 when taking a 4/1 risk is a good move, in this instance you should call.</p>
+    </div>
+  )
+}
+
+export default Strategy;

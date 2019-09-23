@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { GamePage, Login, Rules } from '../pages/';
+import { GamePage, Login, RulesPage } from '../pages/';
 import './reset.css';
 import './app.scss';
 
@@ -15,7 +15,7 @@ const App = () => {
 
           <Route
             path="/rules"
-            component={Rules}
+            component={RulesPage}
             exact />
 
           <Route
