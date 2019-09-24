@@ -9,7 +9,7 @@ export default class LoginPage extends Component {
 
   focusInput(e) {
     const target = e.target,
-          parent = target.parentElement;
+          parent = target.closest('.login-window__row');
 
     parent.classList.add('active');
     parent.querySelector('input').focus();
@@ -17,11 +17,18 @@ export default class LoginPage extends Component {
 
   checkInput(e) {
     const target = e.target,
-          parent = target.parentElement;
+          parent = target.closest('.login-window__row'),
+          fillError = parent.getAttribute('data-error'),
+          amountError = parent.getAttribute('data-max-amount'),
+          errorField = parent.querySelector('.login-window__error');
 
     if (target.value.length === 0) {
       parent.classList.remove('active');
       parent.classList.add('error');
+      errorField.innerHTML = fillError;
+    } else if (target.getAttribute('type') === 'number' && target.value > 6 ) {
+      parent.classList.add('error');
+      errorField.innerHTML = amountError;
     } else {
       parent.classList.remove('error');
     }
@@ -31,7 +38,22 @@ export default class LoginPage extends Component {
     const inputFields = document.querySelectorAll('.login-window__input[required]');
 
     inputFields.forEach(input => {
-      input.value.length === 0 ? input.parentElement.classList.add('error') : input.parentElement.classList.remove('error');
+      const parent = input.closest('.login-window__row'),
+            fillError = parent.getAttribute('data-error'),
+            amountError = parent.getAttribute('data-max-amount'),
+            errorField = parent.querySelector('.login-window__error');
+
+      if (input.value.length === 0) {
+        parent.classList.remove('active');
+        parent.classList.add('error');
+        errorField.innerHTML = fillError;
+        input.closest('.login-window__row').classList.add('error');
+      } else if (input.getAttribute('type') === 'number' && input.value > 6) {
+        parent.classList.add('error');
+        errorField.innerHTML = amountError;
+      } else {
+        input.closest('.login-window__row').classList.remove('error');
+      }
     });
 
     if (document.querySelectorAll('.error').length === 0) {
@@ -54,28 +76,32 @@ export default class LoginPage extends Component {
               Welcome to holdem App!
             </h1>
 
-            <div className="login-window__row" onClick={ this.focusInput }>
-              <span className="login-window__row-name">enter your name</span>
-              <input
-                type="text"
-                className="login-window__input"
-                id="name"
-                onBlur={ this.checkInput }
-                required
-              />
-              <span className="login-window__error">Name field is required</span>
+            <div className="login-window__row" onClick={ this.focusInput } data-error="Name field is required">
+              <div className="login-window__row-info">
+                <span className="login-window__row-name">enter your name</span>
+                <input
+                  type="text"
+                  className="login-window__input"
+                  id="name"
+                  onBlur={ this.checkInput }
+                  required
+                />
+              </div>
+              <span className="login-window__error"></span>
             </div>
 
-            <div className="login-window__row" onClick={ this.focusInput }>
-              <span className="login-window__row-name">amount of players</span>
-              <input
-                type="text"
-                id="players"
-                className="login-window__input"
-                onBlur={ this.checkInput }
-                required
-              />
-              <span className="login-window__error">Players field is required</span>
+            <div className="login-window__row" onClick={ this.focusInput } data-error="Players field is required" data-max-amount="amount of players should be less than 6">
+              <div className="login-window__row-info">
+                <span className="login-window__row-name">amount of players</span>
+                <input
+                  type="number"
+                  id="players"
+                  className="login-window__input"
+                  onBlur={ this.checkInput }
+                  required
+                />
+              </div>
+              <span className="login-window__error"></span>
             </div>
 
             <div className="login-window__btn-wrapper">
