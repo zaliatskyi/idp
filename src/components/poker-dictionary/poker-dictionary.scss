@@ -12,6 +12,22 @@
   &__letter {
     padding: 10px 15px;
     border-right: 2px solid $grey;
+    cursor: pointer;
+    transition: .3s ease;
+
+    &.active {
+      background: rgba($grey, .5);
+      color: $white;
+      cursor: default;
+    }
+
+    &:hover {
+      &:not(.active) {
+        cursor: pointer;
+        background: rgba($grey, .8);
+        color: $white;
+      }
+    }
 
     &:last-child {
       border-right: 0;
@@ -20,5 +36,13 @@
 
   &__body {
     padding: 10px;
+  }
+
+  &__block {
+    display: none;
+
+    &.active {
+      display: block;
+    }
   }
 }

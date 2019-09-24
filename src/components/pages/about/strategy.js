@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Strategy = (props) => {
-  console.log(props);
-
   return (
     <div className={`rules-section ${props.active ? 'active' : ''} `} data-section={props.name}>
       <h2 className="rules-section__header">Poker Tips and Tactics</h2>

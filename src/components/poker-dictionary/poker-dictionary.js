@@ -1,45 +1,76 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './poker-dictionary.scss';
+import { A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V } from './letters';
+export default class PokerDictionary extends Component {
+  showApproprLetter(e) {
+    const target = e.target,
+          headers = document.querySelectorAll('.dictionary__letter'),
+          approprPageName = target.getAttribute('dictionary-letter'),
+          approprSection = document.querySelector(`.dictionary__block[dictionary-letter-block="${approprPageName}"]`),
+          sections = document.querySelectorAll('.dictionary__block');
+          console.log("TCL: PokerDictionary -> showApproprLetter -> sections", sections)
 
-const PokerDictionary = () => {
-  return (
-    <div className="dictionary">
-      <div className="dictionary__header">
-        <div className="dictionary__letter" dictionary-letter="a">a</div>
-        <div className="dictionary__letter" dictionary-letter="b">b</div>
-        <div className="dictionary__letter" dictionary-letter="c">c</div>
-        <div className="dictionary__letter" dictionary-letter="d">d</div>
-        <div className="dictionary__letter" dictionary-letter="e">e</div>
-        <div className="dictionary__letter" dictionary-letter="f">f</div>
-        <div className="dictionary__letter" dictionary-letter="g">g</div>
-        <div className="dictionary__letter" dictionary-letter="h">h</div>
-        <div className="dictionary__letter" dictionary-letter="i">i</div>
-        <div className="dictionary__letter" dictionary-letter="j">j</div>
-        <div className="dictionary__letter" dictionary-letter="k">k</div>
-        <div className="dictionary__letter" dictionary-letter="l">l</div>
-        <div className="dictionary__letter" dictionary-letter="m">m</div>
-        <div className="dictionary__letter" dictionary-letter="n">n</div>
-        <div className="dictionary__letter" dictionary-letter="o">o</div>
-        <div className="dictionary__letter" dictionary-letter="p">p</div>
-        <div className="dictionary__letter" dictionary-letter="q">q</div>
-        <div className="dictionary__letter" dictionary-letter="r">r</div>
-        <div className="dictionary__letter" dictionary-letter="s">s</div>
-        <div className="dictionary__letter" dictionary-letter="t">t</div>
-        <div className="dictionary__letter" dictionary-letter="u">u</div>
-        <div className="dictionary__letter" dictionary-letter="v">v</div>
-      </div>
+    if(target.classList.contains('active')) {
+      return false;
+    }
+    headers.forEach(header => {
+      header.classList.remove('active');
+    });
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+    target.classList.add('active');
+    approprSection.classList.add('active');
+  }
 
-      <div className="dictionary__body">
-        <div className="dictionary__block" dictionary-letter-block="a">
-          this is letter a
+  render() {
+    const letters = {
+      a: <A />,
+      b: <B />,
+      c: <C />,
+      d: <D />,
+      e: <E />,
+      f: <F />,
+      g: <G />,
+      h: <H />,
+      i: <I />,
+      j: <J />,
+      k: <K />,
+      l: <L />,
+      m: <M />,
+      n: <N />,
+      o: <O />,
+      p: <P />,
+      q: <Q />,
+      r: <R />,
+      s: <S />,
+      t: <T />,
+      u: <U />,
+      v: <V />
+    }
+
+    return (
+      <div className="dictionary">
+        <div className="dictionary__header">
+          {
+            Object.keys(letters).map((letter, i) => {
+              return <div className={`dictionary__letter ${i === 0 ? 'active' : ''}`} dictionary-letter={letter} key={`dictionary-letter ${letter}`} onClick={this.showApproprLetter}>{letter}</div>
+            })
+          }
         </div>
 
-        <div className="dictionary__block" dictionary-letter-block="b">
-          this is letter b
+        <div className="dictionary__body">
+          {
+            Object.keys(letters).map((letter, i) => {
+              return (
+                <div className={`dictionary__block ${i === 0 ? 'active' : ''}`} dictionary-letter-block={letter} key={`dictionary-block ${letter}`}>
+                  {letters[letter]}
+                </div>
+              )
+            })
+          }
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
-
-export default PokerDictionary;
