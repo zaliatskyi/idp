@@ -1,0 +1,60 @@
+@import '../app/variables.scss';
+
+.dictionary {
+  border: 2px solid $grey;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    border-bottom: 2px solid $grey;
+    text-transform: uppercase;
+  }
+
+  &__letter {
+    padding: 10px 15px;
+    border-right: 2px solid $grey;
+    cursor: pointer;
+    transition: .3s ease;
+
+    &.active {
+      background: rgba($grey, .5);
+      color: $white;
+      cursor: default;
+    }
+
+    &:hover {
+      &:not(.active) {
+        cursor: pointer;
+        background: rgba($grey, .8);
+        color: $white;
+      }
+    }
+  }
+
+  &__body {
+    padding: 10px;
+  }
+
+  &__block {
+    display: none;
+    padding: 20px;
+
+    &.active {
+      display: block;
+    }
+
+    &-header {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    &-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
