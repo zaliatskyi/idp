@@ -48,7 +48,7 @@ export default class LoginPage extends Component {
         parent.classList.add('error');
         errorField.innerHTML = fillError;
         input.closest('.login-window__row').classList.add('error');
-      } else if (input.getAttribute('type') === 'number' && input.value > 6) {
+      } else if (input.getAttribute('type') === 'number' && input.value > 3) {
         parent.classList.add('error');
         errorField.innerHTML = amountError;
       } else {
@@ -90,7 +90,7 @@ export default class LoginPage extends Component {
               <span className="login-window__error"></span>
             </div>
 
-            <div className="login-window__row" onClick={ this.focusInput } data-error="Players field is required" data-max-amount="amount of players should be less than 6">
+            <div className="login-window__row" onClick={ this.focusInput } data-error="Players field is required" data-max-amount="amount of players should be less than 4">
               <div className="login-window__row-info">
                 <span className="login-window__row-name">amount of players</span>
                 <input
