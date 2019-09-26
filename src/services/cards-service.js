@@ -93,6 +93,7 @@ const checkCombination = (combination) => {
   return result;
 }
 export default class CardsService {
+  shuffle = (deck) => shuffle(deck);
   getDeck = () => shuffle(generateDeck());
   checkCombination = (combination) => checkCombination(combination);
 }

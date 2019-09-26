@@ -13,12 +13,15 @@ const cardsService = new CardsService(),
         isFlop: true,
         isLast: false
     };
+
+let deck = cardsService.getDeck();
+
 export default class Table extends Component {
   constructor(props) {
     super();
 
     this.state = {
-      deck: cardsService.getDeck(),
+      deck,
       ...initialState
     };
   }
@@ -92,7 +95,12 @@ export default class Table extends Component {
   }
 
   resetTable = () => {
-    this.setState(initialState);
+    this.setState((state) => {
+      return {
+        deck: cardsService.shuffle(deck),
+      ...initialState
+      }
+    })
   }
 
   componentDidUpdate() {
