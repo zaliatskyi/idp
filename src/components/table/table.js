@@ -12,9 +12,8 @@ const cardsService = new CardsService(),
         cardsAreDealt: false,
         isFlop: true,
         isLast: false
-    };
-
-let deck = cardsService.getDeck();
+      },
+      deck = cardsService.getDeck();
 
 export default class Table extends Component {
   constructor(props) {

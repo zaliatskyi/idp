@@ -1,14 +1,13 @@
 import isFlush from './isFlush';
 
 const isRoyalFlush = (cards) => {
-  let isRoyal = false;
+  let isRoyal = true,
+      royalArr = ['10', 'J', 'Q', 'K', 'A'];
 
-  cards.ranks.every((val) => {
-    if ([10, 11, 12, 13, 14].includes(val)) {
-      isRoyal = true;
+  royalArr.some(rank => {
+    if (!cards.ranks.includes(rank)) {
+      isRoyal = false;
     }
-
-    return isRoyal;
   });
 
   return isRoyal && isFlush(cards) ? true : false;
