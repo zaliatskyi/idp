@@ -8,7 +8,6 @@ export default class PokerDictionary extends Component {
           approprPageName = target.getAttribute('dictionary-letter'),
           approprSection = document.querySelector(`.dictionary__block[dictionary-letter-block="${approprPageName}"]`),
           sections = document.querySelectorAll('.dictionary__block');
-          console.log("TCL: PokerDictionary -> showApproprLetter -> sections", sections)
 
     if(target.classList.contains('active')) {
       return false;

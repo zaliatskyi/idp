@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import store from '../../store';
 import Deck from '../deck';
 import Players from '../players';
 import CardsService from '../../services/cards-service';
@@ -8,6 +9,7 @@ const cardsService = new CardsService(),
       initialState = {
         board: [],
         playersNumber: 3,
+        playerName: 'Guest',
         players: [],
         cardsAreDealt: false,
         isFlop: true,
@@ -102,8 +104,16 @@ export default class Table extends Component {
     })
   }
 
-  componentDidUpdate() {
-    console.log('new state is:', this.state);
+  componentWillMount() {
+    const { playersNumber, playerName } = store.getState();
+
+    this.setState((state) => {
+      return {
+        ...state,
+        playerName,
+        playersNumber
+      }
+    })
   }
 
   render() {
@@ -113,11 +123,13 @@ export default class Table extends Component {
       isFlop,
       isLast,
       cardsAreDealt,
-      playersNumber
+      playersNumber,
+      playerName
     } = this.state;
 
     return (
       <React.Fragment>
+        <h1 className="table__player">Welcome,<strong>{playerName}</strong> to our poker game!</h1>
         <div className="table">
           <Deck board={board} />
           <Players players={players} />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './login.scss';
+import store from '../../store';
+import { Login } from '../../actions';
 
 export default class LoginPage extends Component {
   constructor(props) {
@@ -57,6 +59,10 @@ export default class LoginPage extends Component {
     });
 
     if (document.querySelectorAll('.error').length === 0) {
+      const playerName = document.getElementById('name').value,
+            playersAmount = parseFloat(document.getElementById('players').value);
+
+      store.dispatch(Login(playerName, playersAmount));
       this.props.history.push('/game');
     }
   }

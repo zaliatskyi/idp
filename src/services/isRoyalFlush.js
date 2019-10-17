@@ -8,6 +8,7 @@ const isRoyalFlush = (cards) => {
     if (!cards.ranks.includes(rank)) {
       isRoyal = false;
     }
+    return isRoyal;
   });
 
   return isRoyal && isFlush(cards) ? true : false;
