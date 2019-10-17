@@ -1,0 +1,39 @@
+@import '../app/variables.scss';
+
+.header {
+  box-shadow: 0 15px 10px rgba($black, .1);
+  padding: 5px 15px;
+  background: $lightblack;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  .logo {
+    max-height: 55px;
+    margin-right: 40px;
+  }
+
+  &-list {
+    display: flex;
+
+    &__item {
+      transition: .3s ease;
+      margin-right: 20px;
+      cursor: pointer;
+      text-transform: capitalize;
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        color: $red;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

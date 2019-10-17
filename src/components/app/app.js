@@ -1,13 +1,28 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { GamePage, Login, RulesPage } from '../pages/';
 import './reset.css';
-import './app.css';
+import './app.scss';
 
 const App = () => {
   return (
     <main role="main" className="main">
-      <div className="container">
-        initial app
-      </div>
+        <Switch>
+          <Route
+            path="/"
+            component={Login}
+            exact />
+
+          <Route
+            path="/rules"
+            component={RulesPage}
+            exact />
+
+          <Route
+            path="/game"
+            component={GamePage}
+            />
+        </Switch>
     </main>
   );
 };
