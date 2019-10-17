@@ -8,16 +8,20 @@
   background-image: url('../../img/poker-bg.jpg');
   background-size: cover;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &-window {
+    @include respond-to('small') {
+      padding: 30px 55px;
+    }
     background: $white;
     color: $lightblack;
     box-shadow: 0 5px 10px 0px rgba($black, 0.1);
-    padding: 30px 55px;
-    @include center-xy();
+    padding: 20px;
     font-size: 24px;
-    width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 
     &__header {
       margin-bottom: 30px;

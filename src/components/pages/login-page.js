@@ -77,45 +77,47 @@ export default class LoginPage extends Component {
         transitionName={this.props.match.params === '/' ? 'loadComponent' : 'leaveComponent'}
       >
         <div className="login">
-          <div className="login-window">
-            <h1 className="login-window__header">
-              Welcome to holdem App!
-            </h1>
+          <div className="container">
+            <div className="login-window">
+              <h1 className="login-window__header">
+                Welcome to holdem App!
+              </h1>
 
-            <div className="login-window__row" onClick={ this.focusInput } data-error="Name field is required">
-              <div className="login-window__row-info">
-                <span className="login-window__row-name">enter your name</span>
-                <input
-                  type="text"
-                  className="login-window__input"
-                  id="name"
-                  onBlur={ this.checkInput }
-                  required
-                />
+              <div className="login-window__row" onClick={ this.focusInput } data-error="Name field is required">
+                <div className="login-window__row-info">
+                  <span className="login-window__row-name">enter your name</span>
+                  <input
+                    type="text"
+                    className="login-window__input"
+                    id="name"
+                    onBlur={ this.checkInput }
+                    required
+                  />
+                </div>
+                <span className="login-window__error"></span>
               </div>
-              <span className="login-window__error"></span>
-            </div>
 
-            <div className="login-window__row" onClick={ this.focusInput } data-error="Players field is required" data-max-amount="amount of players should be less than 4">
-              <div className="login-window__row-info">
-                <span className="login-window__row-name">amount of players</span>
-                <input
-                  type="number"
-                  id="players"
-                  className="login-window__input"
-                  onBlur={ this.checkInput }
-                  required
-                />
+              <div className="login-window__row" onClick={ this.focusInput } data-error="Players field is required" data-max-amount="amount of players should be less than 4">
+                <div className="login-window__row-info">
+                  <span className="login-window__row-name">amount of players</span>
+                  <input
+                    type="number"
+                    id="players"
+                    className="login-window__input"
+                    onBlur={ this.checkInput }
+                    required
+                  />
+                </div>
+                <span className="login-window__error"></span>
               </div>
-              <span className="login-window__error"></span>
-            </div>
 
-            <div className="login-window__btn-wrapper">
-              <div className="login-window__btn-bg"></div>
-              <button
-                className="login-window__btn"
-                onClick={ this.submitLogin.bind(this) }
-              >submit name</button>
+              <div className="login-window__btn-wrapper">
+                <div className="login-window__btn-bg"></div>
+                <button
+                  className="login-window__btn"
+                  onClick={ this.submitLogin.bind(this) }
+                >submit name</button>
+              </div>
             </div>
           </div>
         </div>
