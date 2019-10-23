@@ -83,7 +83,7 @@ export default class LoginPage extends Component {
                 Welcome to holdem App!
               </h1>
 
-              <div className="login-window__row" onClick={ this.focusInput } data-error="Name field is required">
+              <div className="login-window__row" onClick={ this.focusInput } onFocus={ this.focusInput} data-error="Name field is required">
                 <div className="login-window__row-info">
                   <span className="login-window__row-name">enter your name</span>
                   <input
@@ -97,7 +97,7 @@ export default class LoginPage extends Component {
                 <span className="login-window__error"></span>
               </div>
 
-              <div className="login-window__row" onClick={ this.focusInput } data-error="Players field is required" data-max-amount="amount of players should be less than 4">
+              <div className="login-window__row" onClick={ this.focusInput } onFocus={ this.focusInput} data-error="Players field is required" data-max-amount="amount of players should be less than 4">
                 <div className="login-window__row-info">
                   <span className="login-window__row-name">amount of players</span>
                   <input

@@ -9,7 +9,6 @@ const cardsService = new CardsService(),
       initialState = {
         board: [],
         playersNumber: 3,
-        playerName: 'Guest',
         players: [],
         cardsAreDealt: false,
         isFlop: true,
@@ -96,21 +95,23 @@ export default class Table extends Component {
   }
 
   resetTable = () => {
+    const { playersNumber } = store.getState();
+
     this.setState((state) => {
       return {
         deck: cardsService.shuffle(deck),
-      ...initialState
+      ...initialState,
+      playersNumber
       }
     })
   }
 
   componentWillMount() {
-    const { playersNumber, playerName } = store.getState();
+    const { playersNumber } = store.getState();
 
     this.setState((state) => {
       return {
         ...state,
-        playerName,
         playersNumber
       }
     })
@@ -123,13 +124,11 @@ export default class Table extends Component {
       isFlop,
       isLast,
       cardsAreDealt,
-      playersNumber,
-      playerName
+      playersNumber
     } = this.state;
 
     return (
-      <React.Fragment>
-        <h1 className="table__player">Welcome,<strong>{playerName}</strong> to our poker game!</h1>
+      <div className="table__wrapper">
         <div className="table">
           <Deck board={board} />
           <Players players={players} />
@@ -152,7 +151,7 @@ export default class Table extends Component {
           <button className="btn btnCard" onClick={this.resetTable}>reset table</button>
         }
         </div>
-      </React.Fragment>
+      </div>
     )
   }
 }

@@ -9,12 +9,8 @@ $table-border: #a95555;
 $lightblue: #50c6d8;
 
 $breakpoints: (
-    'extra-small': (max-width: 374px),
-    'extra-small-height': (max-height: 600px),
     'small': (min-width: 768px),
     'small-lower': (max-width: 767px),
     'medium': (min-width: 1024px),
-    'large': (min-width: 1441px),
-    'extra-large': (min-width: 1750px),
-    'hor-ori': (max-height: 700px) and (min-width: 1200px)
+    'large': (min-width: 1441px)
 );

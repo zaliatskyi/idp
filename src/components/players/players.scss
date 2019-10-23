@@ -2,8 +2,11 @@
 @import '../app/variables.scss';
 
 .players {
+  @media (min-height: 801px) and (min-width: 768px) {
+    top: -120px;
+  }
   position: absolute;
-  top: -120px;
+  top: -70px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -25,20 +28,30 @@
     }
 
     &-seat {
-      width: 120px;
-      height: 120px;
+      @media (min-height: 801px) and (min-width: 768px) {
+        width: 120px;
+        height: 120px;
+        box-shadow: 1px 10px 0 rgba($black, .3);
+        margin-bottom: 30px;
+      }
+      width: 70px;
+      height: 70px;
       background: $red;
       border-radius: 50%;
-      margin-bottom: 30px;
-      box-shadow: 1px 10px 0 rgba($black, .3);
+      margin-bottom: 15px;
+      box-shadow: 1px 5px 0 rgba($black, .3);
       position: relative;
 
       &::before {
+        @media (min-height: 801px) and (min-width: 768px) {
+          width: 60px;
+          height: 60px;
+        }
         content: '';
         display: block;
         background: darken($red, 10%);
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         @include center-xy();
       }
@@ -88,9 +101,12 @@
     }
 
     .card {
+      @media (min-height: 801px) and (min-width: 768px) {
+        height: 130px;
+      }
       margin: 0 5px;
       max-height: 100%;
-      height: 130px;
+      height: 100px;
 
       &s {
         display: flex;

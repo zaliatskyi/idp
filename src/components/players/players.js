@@ -3,17 +3,8 @@ import Card from '../card';
 import './players.scss';
 
 export default class Players extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      isVisible: false
-    }
-  }
-
   render() {
-    const { players } = this.props,
-          { isVisible } = this.state;
+    const { players } = this.props;
 
     return (
       <div className="players">
@@ -23,7 +14,7 @@ export default class Players extends Component {
                   index = parseFloat(playerIndex) + 1;
 
             return (
-              <div className={`player player${index} ${isVisible ? 'show' : 'hidden'}`} key={`player${index}`}>
+              <div className={`player player${index}`} key={`player${index}`}>
                 <div className="player-seat"></div>
                 <div className="player-name">player {index}</div>
                 <div className="cards">

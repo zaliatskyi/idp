@@ -5,6 +5,17 @@
   padding: 5px 15px;
   background: $lightblack;
   font-size: 18px;
+  position: relative;
+
+  &__user {
+    color: $white;
+    margin-right: 20px;
+    text-transform: capitalize;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .nav {
@@ -20,19 +31,20 @@
     display: flex;
 
     &__item {
-      transition: .3s ease;
       margin-right: 20px;
-      cursor: pointer;
       text-transform: capitalize;
-      color: $white;
-      text-decoration: none;
-
-      &:hover {
-        color: $red;
-      }
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+
+    &__link {
+      transition: .3s ease;
+      color: $white;
+      text-decoration: none;
+      &:hover {
+        color: $red;
       }
     }
   }
