@@ -1,4 +1,5 @@
 @import '../app/variables.scss';
+@import '../app/mixins.scss';
 
 .header {
   box-shadow: 0 15px 10px rgba($black, .1);
@@ -6,36 +7,66 @@
   background: $lightblack;
   font-size: 18px;
   position: relative;
+  height: 65px;
 
   &__user {
     color: $white;
     margin-right: 20px;
     text-transform: capitalize;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
   }
 }
 
 .nav {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   .logo {
     max-height: 55px;
     margin-right: 40px;
   }
 
-  &-list {
+  &__left {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-list {
+    @include respond-to('small') {
+      position: static;
+      flex-direction: row;
+      background: transparent;
+      transform: none;
+    }
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    top: 65px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: lighten($lightblack, 10%);
+    transform: translateY(-200%);
+    transition: .3s ease;
+
+    &--active {
+      transform: none;
+    }
 
     &__item {
-      margin-right: 20px;
+      @include respond-to('small') {
+        margin-right: 20px;
+        padding: 0;
+      }
       text-transform: capitalize;
+      padding: 20px;
+      border-bottom: 2px solid $lightblack;
+      flex: 0 0 auto;
 
       &:last-child {
         margin-right: 0;
+        border-bottom: 0;
       }
     }
 
